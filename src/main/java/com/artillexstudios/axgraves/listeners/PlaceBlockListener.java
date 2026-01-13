@@ -3,6 +3,7 @@ package com.artillexstudios.axgraves.listeners;
 import com.artillexstudios.axgraves.AxGraves;
 import com.artillexstudios.axgraves.grave.SpawnedGraves;
 import com.artillexstudios.axgraves.utils.LocationUtils;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

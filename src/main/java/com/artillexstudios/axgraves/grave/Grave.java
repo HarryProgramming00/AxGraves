@@ -27,6 +27,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ExperienceOrb;
@@ -91,11 +92,15 @@ public class Grave {
         items.forEach(gui::addItem);
 
         this.entity = NMSHandlers.getNmsHandler().createEntity(EntityType.ARMOR_STAND, location.clone().add(0, 1 + CONFIG.getFloat("head-height", -1.2f), 0));
-        entity.setItem(EquipmentSlot.HELMET, WrappedItemStack.wrap(Utils.getPlayerHead(offlinePlayer)));
+        //entity.setItem(EquipmentSlot.HELMET, WrappedItemStack.wrap(Utils.getPlayerHead(offlinePlayer)));
+        entity.setItem(EquipmentSlot.HELMET, WrappedItemStack.wrap(new ItemStack(Material.POPPY, 1)));
         final ArmorStandMeta meta = (ArmorStandMeta) entity.meta();
+        meta.glowing(true);
         meta.small(true);
+        meta.marker(true);
+        meta.setNoBasePlate(true);
         meta.invisible(true);
-        meta.setNoBasePlate(false);
+        //meta.setNoBasePlate(false);
         entity.spawn();
 
         if (CONFIG.getBoolean("rotate-head-360", true)) {
